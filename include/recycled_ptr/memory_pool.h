@@ -17,7 +17,7 @@ public:
 
 private:
 	memory_pool() {}
-	static memory_pool* memory_pool_instance;
+	static memory_pool* memory_pool_instance_;
 };
 
 }  // namespace recycled_ptr
