@@ -20,6 +20,8 @@ private:
 	void outside_reference_increase();
 	void outside_reference_decrease();
 
+	static void deconstructor(void *p);
+
 	Type value_;
 	long outside_reference_count_;
 	block_proxy_ptr<Type> proxy_ptr_;

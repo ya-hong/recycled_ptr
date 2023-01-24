@@ -26,10 +26,12 @@ private:
 };
 
 template <class T, class U>
-bool operator==(const recycled_ptr<T> &lhs, const recycled_ptr<U> &rhs) noexcept;
+bool operator==(const recycled_ptr<T> &lhs,
+				const recycled_ptr<U> &rhs) noexcept;
 
 template <class T, class U>
-bool operator!=(const recycled_ptr<T> &lhs, const recycled_ptr<U> &rhs) noexcept;
+bool operator!=(const recycled_ptr<T> &lhs,
+				const recycled_ptr<U> &rhs) noexcept;
 
 template <class T, class U>
 bool operator<(const recycled_ptr<T> &lhs, const recycled_ptr<U> &rhs) noexcept;
@@ -38,10 +40,12 @@ template <class T, class U>
 bool operator>(const recycled_ptr<T> &lhs, const recycled_ptr<U> &rhs) noexcept;
 
 template <class T, class U>
-bool operator<=(const recycled_ptr<T> &lhs, const recycled_ptr<U> &rhs) noexcept;
+bool operator<=(const recycled_ptr<T> &lhs,
+				const recycled_ptr<U> &rhs) noexcept;
 
 template <class T, class U>
-bool operator>=(const recycled_ptr<T> &lhs, const recycled_ptr<U> &rhs) noexcept;
+bool operator>=(const recycled_ptr<T> &lhs,
+				const recycled_ptr<U> &rhs) noexcept;
 
 template <class T>
 bool operator==(const recycled_ptr<T> &lhs, std::nullptr_t) noexcept;
@@ -80,7 +84,8 @@ template <class T>
 bool operator>=(std::nullptr_t, const recycled_ptr<T> &rhs) noexcept;
 
 template <class T, class U, class V>
-std::basic_ostream<U, V> &operator<<(std::basic_ostream<U, V> &os, const recycled_ptr<T> &ptr);
+std::basic_ostream<U, V> &operator<<(std::basic_ostream<U, V> &os,
+									 const recycled_ptr<T> &ptr);
 
 template <typename Type>
 void swap(recycled_ptr<Type> &lhs, recycled_ptr<Type> &rhs);

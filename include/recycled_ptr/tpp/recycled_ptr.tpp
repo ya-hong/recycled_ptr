@@ -1,6 +1,6 @@
-#include "recycled_ptr/memory_pool.h"
-#include "recycled_ptr/recycled_block.h"
-#include "recycled_ptr/recycled_ptr.h"
+#include "recycled_ptr/memory_pool.hpp"
+#include "recycled_ptr/recycled_block.hpp"
+#include "recycled_ptr/recycled_ptr.hpp"
 
 namespace recycled_ptr {
 
