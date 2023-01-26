@@ -1,97 +1,47 @@
 #pragma once
 
-#include <iostream>
-
-#include "recycled_ptr/types.h"
+#include "recycled_ptr/basic_ptr.hpp"
+#include "recycled_ptr/types.hpp"
 
 namespace recycled_ptr {
 
+/// @brief 指向非gc root内存块的指针
+/// @tparam Type
 template <typename Type>
-class recycled_ptr {
+class recycled_ptr : virtual public basic_ptr {
+	using ptr_tp = recycled_ptr<Type>;
+
+	template <typename Tp, typename... Args>
+	friend recycled_ptr<Tp> make_object(Args &&...args);
+
 public:
-	recycled_ptr() : proxy_ptr_(nullptr) {}
-	recycled_ptr(const recycled_ptr<Type> &ptr);
+	recycled_ptr() = default;
+
+	/// @brief 只允许相同Type之间构造
+	/// @param other
+	recycled_ptr(const ptr_tp &other) = default;
+	recycled_ptr(ptr_tp &&other) = default;
+
+	/// @brief 只允许相同Type之间使用等号
+	/// @param other
+	/// @return
+	ptr_tp &operator=(const ptr_tp &other);
+	ptr_tp &operator=(ptr_tp &&other);
+
 	~recycled_ptr();
 
-	void swap(recycled_ptr<Type> &ptr);
+	void swap(ptr_tp &other);
+
 	Type &operator*() const;
 	Type *operator->() const;
-	explicit operator bool() const noexcept;
 
-private:
-	block_proxy_ptr<Type> proxy_ptr_;
-
-	template <typename Type_, typename... Args>
-	friend recycled_ptr<Type_> make_object(Args &&...args);
+	/// @brief 返回维护的指针并转变为对应的类型。覆盖了基类的get()
+	/// @return Type*
+	Type *get() const;
 };
-
-template <class T, class U>
-bool operator==(const recycled_ptr<T> &lhs,
-				const recycled_ptr<U> &rhs) noexcept;
-
-template <class T, class U>
-bool operator!=(const recycled_ptr<T> &lhs,
-				const recycled_ptr<U> &rhs) noexcept;
-
-template <class T, class U>
-bool operator<(const recycled_ptr<T> &lhs, const recycled_ptr<U> &rhs) noexcept;
-
-template <class T, class U>
-bool operator>(const recycled_ptr<T> &lhs, const recycled_ptr<U> &rhs) noexcept;
-
-template <class T, class U>
-bool operator<=(const recycled_ptr<T> &lhs,
-				const recycled_ptr<U> &rhs) noexcept;
-
-template <class T, class U>
-bool operator>=(const recycled_ptr<T> &lhs,
-				const recycled_ptr<U> &rhs) noexcept;
-
-template <class T>
-bool operator==(const recycled_ptr<T> &lhs, std::nullptr_t) noexcept;
-
-template <class T>
-bool operator==(std::nullptr_t, const recycled_ptr<T> &rhs) noexcept;
-
-template <class T>
-bool operator!=(const recycled_ptr<T> &lhs, std::nullptr_t) noexcept;
-
-template <class T>
-bool operator!=(std::nullptr_t, const recycled_ptr<T> &rhs) noexcept;
-
-template <class T>
-bool operator<(const recycled_ptr<T> &lhs, std::nullptr_t) noexcept;
-
-template <class T>
-bool operator<(std::nullptr_t, const recycled_ptr<T> &rhs) noexcept;
-
-template <class T>
-bool operator>(const recycled_ptr<T> &lhs, std::nullptr_t) noexcept;
-
-template <class T>
-bool operator>(std::nullptr_t, const recycled_ptr<T> &rhs) noexcept;
-
-template <class T>
-bool operator<=(const recycled_ptr<T> &lhs, std::nullptr_t) noexcept;
-
-template <class T>
-bool operator<=(std::nullptr_t, const recycled_ptr<T> &rhs) noexcept;
-
-template <class T>
-bool operator>=(const recycled_ptr<T> &lhs, std::nullptr_t) noexcept;
-
-template <class T>
-bool operator>=(std::nullptr_t, const recycled_ptr<T> &rhs) noexcept;
-
-template <class T, class U, class V>
-std::basic_ostream<U, V> &operator<<(std::basic_ostream<U, V> &os,
-									 const recycled_ptr<T> &ptr);
 
 template <typename Type>
 void swap(recycled_ptr<Type> &lhs, recycled_ptr<Type> &rhs);
-
-template <typename Type, typename... Args>
-recycled_ptr<Type> make_object(Args &&...args);
 
 }  // namespace recycled_ptr
 

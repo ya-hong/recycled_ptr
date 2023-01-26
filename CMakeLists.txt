@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16.3)
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 project(recycled_ptr)
 
 # file(GLOB files RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}/src *)
