@@ -38,9 +38,15 @@ void static_mem_tracker::garbage_collect() {
 		mem_map.erase(it);
 		m_tracker_new.emplace_back(ptr, size, fn);
 
-		for (size_t offset = 0, step = sizeof(void*); offset + step <= size;
-			 offset += step) {
-			void** next = (void**)((uintptr_t)ptr + offset);
+		//使用alignof(basic_ptr)可以避免#pragma(n)改变类的内存对齐
+		//此外alignas改变对齐应该不会导致错误
+		//暂时没想到其他改变内存对齐方式的方法
+		size_t step = alignof(basic_ptr);
+		intptr_t start_position = ((intptr_t)ptr + step - 1) / step * step;
+		intptr_t end_position = (intptr_t)ptr + size;
+		for (size_t position = start_position;
+			 position + sizeof(void*) <= end_position; position += step) {
+			void** next = (void**)position;
 			void* next_address = *next;
 			auto it = mem_map.find(next_address);
 			if (it != mem_map.end()) {
