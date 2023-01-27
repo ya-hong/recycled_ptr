@@ -3,7 +3,7 @@
 // #include "recycled_ptr/basic_ptr.hpp"
 // #include "recycled_ptr/types.hpp"
 
-// namespace recycled_ptr {
+// namespace gc {
 
 // /// @brief
 // /// recycled_ptr和root_ptr的基类(带类型信息)。派生类中只有构造析构函数不同
@@ -46,6 +46,6 @@
 // template <typename Type>
 // void swap(basic_tpptr<Type> &lhs, basic_tpptr<Type> &rhs);
 
-// }  // namespace recycled_ptr
+// }  // namespace gc
 
 // #include "recycled_ptr/tpp/basic_tpptr.tpp"

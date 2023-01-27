@@ -6,7 +6,7 @@
 
 #include "recycled_ptr/types.hpp"
 
-namespace recycled_ptr {
+namespace gc {
 
 class static_mem_tracker {
 public:
@@ -33,6 +33,6 @@ public:
 	static void construct(std::allocator<Type>& alloc, T* p, Args&&... args);
 };
 
-}  // namespace recycled_ptr
+}  // namespace gc
 
 #include "recycled_ptr/tpp/tracked_allocator_traits.tpp"

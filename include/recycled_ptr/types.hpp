@@ -4,7 +4,7 @@
 #include <tuple>
 #include <vector>
 
-namespace recycled_ptr {
+namespace gc {
 
 class basic_ptr;
 
@@ -36,4 +36,4 @@ class tracked_allocator_traits;
 class static_ptr_tracker;
 class static_mem_tracker;
 
-}  // namespace recycled_ptr
+}  // namespace gc

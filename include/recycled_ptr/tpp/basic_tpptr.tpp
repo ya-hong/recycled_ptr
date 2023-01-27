@@ -1,5 +1,5 @@
 #include "recycled_ptr/basic_tpptr.hpp"
 
-namespace recycled_ptr {
+namespace gc {
 
-}  // namespace recycled_ptr
+}  // namespace gc

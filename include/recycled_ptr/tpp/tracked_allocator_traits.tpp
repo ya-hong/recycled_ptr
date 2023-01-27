@@ -1,6 +1,6 @@
 #include "recycled_ptr/tracked_allocator_traits.hpp"
 
-namespace recycled_ptr {
+namespace gc {
 
 template <typename Type>
 template <class T, class... Args>
@@ -18,4 +18,4 @@ void tracked_allocator_traits<Type>::construct(std::allocator<Type>& alloc,
 	tracker_.emplace_back(p, sizeof(Type), fn);
 }
 
-}  // namespace recycled_ptr
+}  // namespace gc

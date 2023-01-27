@@ -2,7 +2,7 @@
 
 // #include <vector>
 
-// namespace recycled_ptr {
+// namespace gc {
 
 // ptr_tracker::tracker_ref ptr_tracker::track(basic_ptr* ptr) {
 // 	emplace_back(ptr, true);
@@ -14,4 +14,4 @@
 // 	active = false;
 // }
 
-// }  // namespace recycled_ptr
+// }  // namespace gc

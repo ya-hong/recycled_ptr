@@ -5,7 +5,7 @@
 #include "recycled_ptr/root_ptr.hpp"
 #include "recycled_ptr/tracked_allocator_traits.hpp"
 
-namespace recycled_ptr {
+namespace gc {
 
 mem_tracker static_mem_tracker::tracker_;
 
@@ -73,4 +73,4 @@ void static_mem_tracker::garbage_collect() {
 	}
 }
 
-}  // namespace recycled_ptr
+}  // namespace gc

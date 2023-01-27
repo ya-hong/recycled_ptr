@@ -2,7 +2,7 @@
 
 #include "recycled_ptr/basic_ptr.hpp"
 
-namespace recycled_ptr {
+namespace gc {
 
 ptr_tracker tracked_ptr::tracker_;
 
@@ -36,4 +36,4 @@ void tracked_ptr::untrack() {
 	active = false;
 }
 
-}  // namespace recycled_ptr
+}  // namespace gc

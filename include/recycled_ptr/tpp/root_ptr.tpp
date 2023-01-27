@@ -3,7 +3,7 @@
 #include "recycled_ptr/root_ptr.hpp"
 // #include "recycled_ptr/ptr_tracker.hpp"
 
-namespace recycled_ptr {
+namespace gc {
 
 template <typename Type>
 root_ptr<Type>::root_ptr(const ptr_tp& other)
@@ -18,4 +18,4 @@ root_ptr<Type>::root_ptr(ptr_tp&& other)
 template <typename Type>
 root_ptr<Type>::~root_ptr() {}
 
-}  // namespace recycled_ptr
+}  // namespace gc

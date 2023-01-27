@@ -1,7 +1,7 @@
 #include "recycled_ptr/basic_ptr.hpp"
 #include "recycled_ptr/types.hpp"
 
-namespace recycled_ptr {
+namespace gc {
 
 class tracked_ptr : virtual public basic_ptr {
 	friend class static_mem_tracker;
@@ -26,4 +26,4 @@ private:
 	size_t tracker_ref_;
 };
 
-}  // namespace recycled_ptr
+}  // namespace gc

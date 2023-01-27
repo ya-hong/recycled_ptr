@@ -1,7 +1,7 @@
 #pragma once
 #include "recycled_ptr/types.hpp"
 
-namespace recycled_ptr {
+namespace gc {
 
 /// @brief 不带类型信息的基类
 class basic_ptr {
@@ -66,4 +66,4 @@ bool operator>=(const basic_ptr &lhs, std::nullptr_t);
 
 bool operator>=(std::nullptr_t, const basic_ptr &rhs);
 
-}  // namespace recycled_ptr
+}  // namespace gc

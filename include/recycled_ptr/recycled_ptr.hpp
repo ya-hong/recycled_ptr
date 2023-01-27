@@ -3,7 +3,7 @@
 #include "recycled_ptr/basic_ptr.hpp"
 #include "recycled_ptr/types.hpp"
 
-namespace recycled_ptr {
+namespace gc {
 
 /// @brief 指向非gc root内存块的指针
 /// @tparam Type
@@ -43,6 +43,6 @@ public:
 template <typename Type>
 void swap(recycled_ptr<Type> &lhs, recycled_ptr<Type> &rhs);
 
-}  // namespace recycled_ptr
+}  // namespace gc
 
 #include "recycled_ptr/tpp/recycled_ptr.tpp"

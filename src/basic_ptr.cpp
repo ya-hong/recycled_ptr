@@ -1,6 +1,6 @@
 #include "recycled_ptr/basic_ptr.hpp"
 
-namespace recycled_ptr {
+namespace gc {
 
 basic_ptr::operator bool() const {
 	return ptr_ != nullptr;
@@ -21,4 +21,4 @@ std::basic_ostream<U, V> &operator<<(std::basic_ostream<U, V> &os,
 	return os;
 }
 
-}  // namespace recycled_ptr
+}  // namespace gc

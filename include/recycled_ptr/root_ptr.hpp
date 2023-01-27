@@ -10,7 +10,7 @@
 #include "recycled_ptr/tracked_ptr.hpp"
 #include "recycled_ptr/types.hpp"
 
-namespace recycled_ptr {
+namespace gc {
 
 /// @brief 指向gc root内存块的指针
 /// @tparam Type
@@ -26,7 +26,7 @@ public:
 	~root_ptr();
 };
 
-}  // namespace recycled_ptr
+}  // namespace gc
 
 #include "recycled_ptr/tpp/root_ptr.tpp"
 

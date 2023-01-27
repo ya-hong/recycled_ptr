@@ -1,7 +1,7 @@
 #include "recycled_ptr/recycled_ptr.hpp"
 #include "recycled_ptr/tracked_allocator_traits.hpp"
 
-namespace recycled_ptr {
+namespace gc {
 
 template <typename Type, typename... Args>
 recycled_ptr<Type> make_object(Args&&... args) {
@@ -59,4 +59,4 @@ void swap(recycled_ptr<Type>& lhs, recycled_ptr<Type>& rhs) {
 	lhs.swap(rhs);
 }
 
-}  // namespace recycled_ptr
+}  // namespace gc

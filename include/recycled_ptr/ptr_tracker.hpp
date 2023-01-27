@@ -5,7 +5,7 @@
 
 // // #include "recycled_ptr/types.hpp"
 
-// namespace recycled_ptr {
+// namespace gc {
 
 // class ptr_tracker : public std::vector<std::pair<basic_ptr*, bool>> {
 // 	using base_class = std::vector<std::pair<basic_ptr*, bool>>;
@@ -16,4 +16,4 @@
 // 	void untrack(tracker_ref);
 // };
 
-// }  // namespace recycled_ptr
+// }  // namespace gc
