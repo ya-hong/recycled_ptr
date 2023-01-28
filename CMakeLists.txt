@@ -16,5 +16,10 @@ include_directories(include)
 
 add_library(recycled_ptr SHARED ${sources})
 
-add_executable(test example/test.cpp)
-target_link_libraries(test PUBLIC recycled_ptr)
+file(GLOB examples RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "example/*.cpp")
+foreach(file IN LISTS examples)
+    get_filename_component(name ${file} NAME_WLE)
+    message(STATUS ${name})
+    add_executable("example_${name}" ${file})
+    target_link_libraries("example_${name}" recycled_ptr)
+endforeach(file)

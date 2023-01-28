@@ -1,8 +1,6 @@
 #pragma once
 
 #include <memory>
-#include <utility>
-#include <vector>
 
 #include "recycled_ptr/types.hpp"
 

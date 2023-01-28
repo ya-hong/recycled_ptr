@@ -1,4 +1,4 @@
-#include "recycled_ptr/basic_ptr.hpp"
+#include "recycled_ptr/internal/basic_ptr.hpp"
 
 namespace gc {
 

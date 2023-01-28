@@ -1,8 +1,6 @@
 #include <iostream>
 
 #include "recycled_ptr/recycled_ptr.hpp"
-#include "recycled_ptr/root_ptr.hpp"
-
 class node {
 public:
 	int v;

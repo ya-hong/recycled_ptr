@@ -1,7 +1,6 @@
 #include <vector>
 
-#include "recycled_ptr/root_ptr.hpp"
-// #include "recycled_ptr/ptr_tracker.hpp"
+#include "recycled_ptr/internal/root_ptr.hpp"
 
 namespace gc {
 

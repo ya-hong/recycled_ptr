@@ -1,9 +1,9 @@
 #include <unordered_map>
 
-#include "recycled_ptr/basic_ptr.hpp"
-#include "recycled_ptr/ptr_tracker.hpp"
-#include "recycled_ptr/root_ptr.hpp"
-#include "recycled_ptr/tracked_allocator_traits.hpp"
+#include "recycled_ptr/internal/basic_ptr.hpp"
+// #include "recycled_ptr/internal/ptr_tracker.hpp"
+#include "recycled_ptr/internal/root_ptr.hpp"
+#include "recycled_ptr/internal/tracked_allocator_traits.hpp"
 
 namespace gc {
 

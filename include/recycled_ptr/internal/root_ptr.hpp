@@ -1,13 +1,10 @@
 #pragma once
 
-#ifndef FUCKYOU
-#define FUCKYOU
-
 #include <utility>
 #include <vector>
 
-#include "recycled_ptr/recycled_ptr.hpp"
-#include "recycled_ptr/tracked_ptr.hpp"
+#include "recycled_ptr/internal/recycled_ptr.hpp"
+#include "recycled_ptr/internal/tracked_ptr.hpp"
 #include "recycled_ptr/types.hpp"
 
 namespace gc {
@@ -29,5 +26,3 @@ public:
 }  // namespace gc
 
 #include "recycled_ptr/tpp/root_ptr.tpp"
-
-#endif

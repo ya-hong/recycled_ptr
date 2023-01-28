@@ -1,4 +1,5 @@
 #pragma once
+
 #include "recycled_ptr/types.hpp"
 
 namespace gc {

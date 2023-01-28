@@ -1,6 +1,6 @@
-#include "recycled_ptr/tracked_ptr.hpp"
+#include "recycled_ptr/internal/tracked_ptr.hpp"
 
-#include "recycled_ptr/basic_ptr.hpp"
+#include "recycled_ptr/internal/basic_ptr.hpp"
 
 namespace gc {
 
@@ -26,6 +26,9 @@ tracked_ptr::~tracked_ptr() {
 }
 
 void tracked_ptr::track() {
+	if (tracker_.size() == 0) {
+		tracker_.reserve(10000);
+	}
 	tracker_.emplace_back(this, true);
 	tracker_ref_ = tracker_.size() - 1;
 }
