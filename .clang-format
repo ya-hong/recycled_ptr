@@ -5,6 +5,6 @@ TabWidth: 4
 AllowShortBlocksOnASingleLine: Empty
 AllowShortFunctionsOnASingleLine: Empty
 IndentCaseLabels: false
-ColumnLimit: 160
+# ColumnLimit: 160
 EmptyLineBeforeAccessModifier: LogicalBlock
 AccessModifierOffset: -4
