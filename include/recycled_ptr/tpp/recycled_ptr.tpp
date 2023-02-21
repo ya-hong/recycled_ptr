@@ -1,5 +1,5 @@
-#include "recycled_ptr/recycled_ptr.hpp"
-#include "recycled_ptr/tracked_allocator_traits.hpp"
+#include "recycled_ptr/internal/recycled_ptr.hpp"
+#include "recycled_ptr/internal/tracked_allocator_traits.hpp"
 
 namespace gc {
 

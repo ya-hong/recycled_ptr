@@ -2,7 +2,7 @@
 #include <iostream>
 #include <memory>
 
-#include "recycled_ptr/recycled_ptr.hpp"
+#include "recycled_ptr.hpp"
 
 struct timer {
 	timer() {

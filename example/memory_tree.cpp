@@ -3,7 +3,7 @@
 #include <iostream>
 #include <memory>
 
-#include "recycled_ptr/recycled_ptr.hpp"
+#include "recycled_ptr.hpp"
 
 struct timer {
 	timer() {
@@ -26,7 +26,7 @@ struct snode {
 	int A[100000];
 	std::vector<std::shared_ptr<snode>> v;
 	snode() {
-		memset(A, 12, sizeof(A));
+		memset(A, -1, sizeof(A));
 		for (int i = 0; i < 10 && node_counts; i++, node_counts--) {
 			v.push_back(std::shared_ptr<snode>());
 		}
@@ -38,14 +38,17 @@ struct snode {
 
 struct rnode {
 	int A[100000];
-	std::vector<gc::recycled_ptr<rnode>> v;
+	gc::recycled_ptr<rnode> v[10];
+	int count;
 	inline static gc::recycled_ptr<rnode> pp = gc::recycled_ptr<rnode>();
 	rnode() {
-		memset(A, 0, sizeof(A));
+		memset(A, -1, sizeof(A));
 		for (int i = 0; i < 10 && node_counts; i++, node_counts--) {
-			v.push_back(gc::recycled_ptr<rnode>());
+			v[i] = gc::recycled_ptr<rnode>();
+			count = i;
 		}
-		for (auto &p : v) {
+		for (int i = 0; i < count; ++i) {
+			auto &p = v[i];
 			p = gc::make_object<rnode>();
 			pp = p;
 		}
